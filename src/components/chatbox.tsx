@@ -125,7 +125,7 @@ export default function ChatBox() {
             const prompt = `${rawChatHistory.current.map((chat) => {
               return `${chat.role}: ${chat.text}\n`;
             })}\nassistant:`;
-            let aiReplay = (await model.execute(prompt)) as unknown as string;
+            let aiReplay = (await model.prompt(prompt)) as unknown as string;
             console.log(aiReplay, typeof aiReplay);
 
             if (!aiReplay || aiReplay.length == 0) {
